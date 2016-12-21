@@ -12,5 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+        return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/mainmenu', 'MainMenuController@index');
+Route::get('/random', 'MainMenuController@random');
+Route::post('/delete', 'MainMenuController@delete');
+
+Route::get('/logs', 'LogController@index');
+
+Route::get('/add', 'AddShowController@index');
+Route::post('/add', 'AddShowController@addNewShow');
+
+Route::get('/edit', 'AddShowController@index_edit');
+Route::post('/editShow', 'AddShowController@editShow');
