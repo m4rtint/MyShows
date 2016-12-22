@@ -34,7 +34,7 @@ class MainMenuController extends Controller
         $image_link = $data->image_link;
         $video_link = $data->video_link;
         $description = $data->description;
-        $episodes = \DB::table('episodes')->where('title', $title)->get();
+        $episodes = \DB::table('episodes')->where('title', $title)->orderBy('episode')->get();
 
         return view('random')->with(['title'=>$title,
                             'image'=> $image_link,
