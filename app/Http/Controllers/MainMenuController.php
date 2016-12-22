@@ -15,9 +15,7 @@ class MainMenuController extends Controller
     public function index()
     {
         $id = \Auth::user()->id;
-        $data = \DB::table('shows')->where('id',$id)
-        ->orderBy(\DB::raw('RAND()'))
-        ->get();
+        $data = \DB::table('shows')->where('id',$id)->inRandomOrder()->get();
         return view('mainmenu')->with('data',$data);
     }
 
