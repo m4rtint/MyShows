@@ -46,7 +46,7 @@ class AddShowController extends Controller
             'video_link' => $_POST['video'],
         ]);
 
-        return redirect('/mainmenu');
+        return redirect('/show?title='.$_POST['title']);
     }
 
     public function index_edit()
