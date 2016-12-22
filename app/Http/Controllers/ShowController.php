@@ -14,7 +14,7 @@ class ShowController extends Controller
 
     public function index()
     {
-        $episodes = \DB::table('episodes')->where('title', $_GET['title'])->get();
+        $episodes = \DB::table('episodes')->where('title', $_GET['title'])->orderBy('episode','asc')->get();
         $data = \DB::table('shows')->where('title',$_GET['title'])->first();
         $title = $data->title;
         $desc = $data->description;

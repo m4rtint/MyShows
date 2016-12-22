@@ -23,7 +23,7 @@
                     @foreach ($episodes as $ep)
                     <div class="btn-group btn-group-justified" role="group">
                       <div class="btn-group" role="group">
-                        <a href={{$ep->url}} class="btn btn-default">{{$ep->title}} - Episode {{$ep->episode}}</a>
+                        <a href={{$ep->url}} target="_blank" class="btn btn-default">{{$ep->title}} - Episode {{$ep->episode}}</a>
                       </div>
                       <div class="btn-group" role="group">
                           <form action="/deleteEpisode" method="post">
