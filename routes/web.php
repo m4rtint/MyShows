@@ -30,3 +30,7 @@ Route::post('/add', 'AddShowController@addNewShow');
 
 Route::get('/edit', 'AddShowController@index_edit');
 Route::post('/editShow', 'AddShowController@editShow');
+
+Route::get('/show', 'ShowController@index');
+Route::post('/addEpisode', 'AddEpisodeController@addEpisode');
+Route::post('/deleteEpisode' , 'AddEpisodeController@deleteEpisode');

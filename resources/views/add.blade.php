@@ -2,15 +2,6 @@
 
 @section('content')
 <div class="container">
-    @if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -27,6 +18,10 @@
                         <label>Description</label>
                             <textarea name="description" class="form-control" rows="3"></textarea>
                         </div>
+                      <div class="form-group">
+                         <label>Episode</label>
+                         <input name="episode" class="form-control" >
+                      </div>
                       <div class="form-group">
                         <label>Image</label>
                         <input name="image" class="form-control" >

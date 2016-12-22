@@ -32,12 +32,18 @@ class AddShowController extends Controller
             'created_at'  => new \DateTime()
         ]);
 
+        \DB::table('episodes')->insert([
+            'title' => $_POST['title'],
+            'episode' => $_POST['episode'],
+            'url' => $_POST['video']
+        ]);
+
         \DB::table('shows')->insert([
             'id' => \Auth::user()->id,
             'title' => $_POST['title'],
             'description' => $_POST['description'],
             'image_link' => $_POST['image'],
-            'video_link' => $_POST['video']
+            'video_link' => $_POST['video'],
         ]);
 
         return redirect('/mainmenu');
@@ -46,8 +52,8 @@ class AddShowController extends Controller
     public function index_edit()
     {
         $data = \DB::table('shows')->where('title', $_GET['title'])->first();
-        return view('edit')->with(
-            ['title' => $data->title,
+        return view('edit')->with([
+            'title' => $data->title,
             'description' => $data->description,
             'video' => $data->video_link,
             'image' => $data->image_link

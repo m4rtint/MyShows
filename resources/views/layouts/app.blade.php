@@ -43,7 +43,8 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="\random">Random</a></li>
+                        <li><a href="\add">Add Show</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -58,9 +59,6 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="\mainmenu">Main Menu</a></li>
-                                    <li><a href="\random">Random</a></li>
-                                    <li><a href="\add">Add Show</a></li>
                                     <li><a href="\logs">Logs</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
@@ -80,7 +78,15 @@
                 </div>
             </div>
         </nav>
-
+        @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         @yield('content')
     </div>
 

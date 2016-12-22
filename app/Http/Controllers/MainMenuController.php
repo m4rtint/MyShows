@@ -27,6 +27,9 @@ class MainMenuController extends Controller
         $data = \DB::table('shows')->where('id',$id)
                                     ->orderBy(\DB::raw('RAND()'))
                                     ->first();
+        if (!count($data)) {
+            return redirect('mainmenu');
+        }
         $title = $data->title;
         $image_link = $data->image_link;
         $video_link = $data->video_link;
@@ -49,7 +52,7 @@ class MainMenuController extends Controller
             'description' => $finalDescr,
             'created_at'  => new \DateTime()
         ]);
-
+        \DB::table('episodes')->where('title',$name)->delete();
         \DB::table('shows')->where('title',$name)->delete();
         return redirect('mainmenu');
     }
