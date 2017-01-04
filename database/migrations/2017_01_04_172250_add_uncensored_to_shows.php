@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShowsTable extends Migration
+class AddUncensoredToShows extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateShowsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shows', function (Blueprint $table) {
+        Schema::table('shows', function (Blueprint $table) {
             $table->string('id');
             $table->string('title')->unique();
             $table->longText('description');
+            $table->boolean('uncensored');
             $table->string('image_link');
             $table->string('video_link');
         });
@@ -29,6 +30,6 @@ class CreateShowsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shows');
+        //
     }
 }
