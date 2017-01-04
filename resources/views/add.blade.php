@@ -23,6 +23,10 @@
                          <input name="episode" class="form-control" >
                       </div>
                       <div class="form-group">
+                         <label>uncensored</label>
+                         <input type="checkbox" name="uncensored" class="form-control" >
+                      </div>
+                      <div class="form-group">
                         <label>Image</label>
                         <input name="image" class="form-control" >
                       </div>

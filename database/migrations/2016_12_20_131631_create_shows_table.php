@@ -17,6 +17,7 @@ class CreateShowsTable extends Migration
             $table->string('id');
             $table->string('title')->unique();
             $table->longText('description');
+            $table->boolean('uncensored');
             $table->string('image_link');
             $table->string('video_link');
         });

@@ -37,11 +37,16 @@ class AddShowController extends Controller
             'episode' => $_POST['episode'],
             'url' => $_POST['video']
         ]);
+        $uncen = 0;
+        if (isset($_POST['uncensored'])) {
+            $uncen = 1;
+        }
 
         \DB::table('shows')->insert([
             'id' => \Auth::user()->id,
             'title' => $_POST['title'],
             'description' => $_POST['description'],
+            'uncensored' => $uncen,
             'image_link' => $_POST['image'],
             'video_link' => $_POST['video'],
         ]);
@@ -55,6 +60,7 @@ class AddShowController extends Controller
         return view('edit')->with([
             'title' => $data->title,
             'description' => $data->description,
+            'uncensored' => $data->uncensored,
             'video' => $data->video_link,
             'image' => $data->image_link
         ]);
@@ -74,10 +80,14 @@ class AddShowController extends Controller
             'description' => $finalDescr,
             'created_at'  => new \DateTime()
         ]);
-
+        $uncensored = 0;
+        if(isset($_POST['uncensored'])) {
+            $uncensored =1;
+        }
         \DB::table('shows')->where('title', $_POST['title'])
                             ->update([
                                 'description' => $_POST['description'],
+                                'uncensored' => $uncensored,
                                 'image_link' => $_POST['image'],
                                 'video_link' => $_POST['video']
                             ]);

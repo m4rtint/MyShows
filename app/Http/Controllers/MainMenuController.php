@@ -28,6 +28,7 @@ class MainMenuController extends Controller
         if (!count($data)) {
             return redirect('mainmenu');
         }
+        $uncensored = $data->uncensored;
         $title = $data->title;
         $image_link = $data->image_link;
         $video_link = $data->video_link;
@@ -37,6 +38,7 @@ class MainMenuController extends Controller
         return view('random')->with(['title'=>$title,
                             'image'=> $image_link,
                             'video' => $video_link,
+                            'uncensored' => $uncensored,
                             'description' => $description,
                             'episodes' => $episodes]);
     }

@@ -40,6 +40,10 @@
                             <label>Video Link</label>
                             <input name="video" class="form-control" value={{$video}}>
                           </div>
+                          <div class="form-group">
+                             <label>uncensored</label>
+                             <input type="checkbox" name="uncensored" class="form-control" >
+                          </div>
                         </div>
                     </div>
                     <br>

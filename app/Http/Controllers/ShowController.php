@@ -18,10 +18,12 @@ class ShowController extends Controller
         $data = \DB::table('shows')->where('title',$_GET['title'])->first();
         $title = $data->title;
         $desc = $data->description;
+        $uncensored = $data->uncensored;
         $img = $data->image_link;
         $vid = $data->video_link;
         return view('show')->with(['title' => $title,
                                     'description' => $desc,
+                                    'uncensored' => $uncensored,
                                     'image' => $img,
                                     'video' => $vid,
                                     'episodes' => $episodes]);

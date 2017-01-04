@@ -15,6 +15,9 @@
                             </a>
                         </div>
                         <div class="col-md-5">
+                            @if ($d->uncensored)
+                                <span class="label label-default">uncensored</span>
+                            @endif
                             <p>{{$d->description}}</p>
                         </div>
                     </div>
